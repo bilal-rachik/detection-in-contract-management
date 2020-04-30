@@ -13,9 +13,9 @@ sys.path.append('../models/research/')
 from object_detection.utils import dataset_util
 
 flags = tf.app.flags
-flags.DEFINE_string('train_output_path', 'training_Faster_faster_rcnn/annotations/train.tfrecords',
+flags.DEFINE_string('train_output_path', 'training_faster_rcnn/annotations/train.tfrecords',
                     'Path to output train set TFRecord')
-flags.DEFINE_string('test_output_path', 'training_Faster_faster_rcnn/annotations/test.tfrecords',
+flags.DEFINE_string('test_output_path', 'training_faster_rcnn/annotations/test.tfrecords',
                     'Path to output train set TFRecord')
 FLAGS = flags.FLAGS
 
@@ -106,7 +106,7 @@ def main(_):
     parser.add_argument("--img_dir", help="directory containing all images", required=True)
     parser.add_argument(
         "--json_path",
-        default="training_Faster_faster_rcnn/images/detection-export.json",
+        default="training_faster_rcnn/images/detection-export.json",
         help="json with all the labels"
     )
     args = parser.parse_args()
