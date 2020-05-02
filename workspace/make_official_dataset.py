@@ -13,14 +13,14 @@ sys.path.append('../models/research/')
 from object_detection.utils import dataset_util
 
 flags = tf.app.flags
-flags.DEFINE_string('train_output_path', 'training_faster_rcnn/annotations/train.tfrecords',
+flags.DEFINE_string('train_output_path', "C:/DEV/detection-in-contract-management/workspace/training_faster_rcnn/annotations/train.tfrecords",
                     'Path to output train set TFRecord')
-flags.DEFINE_string('test_output_path', 'training_faster_rcnn/annotations/test.tfrecords',
+flags.DEFINE_string('test_output_path', 'C:/DEV/detection-in-contract-management/workspace/training_faster_rcnn/annotations/test.tfrecords',
                     'Path to output train set TFRecord')
 FLAGS = flags.FLAGS
 
 
-def create_tf_example(filename, label0, labels, signature_vs_others):
+def create_tf_example(filename, label0, labels, signature_vs_others=False):
     """
     Creates a tf.Example proto from sample image.
     Args:
@@ -106,7 +106,7 @@ def main(_):
     parser.add_argument("--img_dir", help="directory containing all images", required=True)
     parser.add_argument(
         "--json_path",
-        default="training_faster_rcnn/images/detection-export.json",
+        default="C:/DEV/detection-in-contract-management/workspace/training_faster_rcnn/images/object-detection-export.json",
         help="json with all the labels"
     )
     args = parser.parse_args()
@@ -118,7 +118,7 @@ def main(_):
         label_map = json.load(json_file)
         keys = list(label_map["assets"].keys())
         # train and test split
-        keys_train = random.sample(keys, 30)
+        keys_train = random.sample(keys, 280)
         keys_test = [k for k in keys if k not in keys_train]
     random.shuffle(keys_train), random.shuffle(keys_test)
     print('{} images in the train folder and {} images in the test folder'.format(len(keys_train), len(keys_test)))
@@ -137,7 +137,7 @@ def main(_):
             else:
                 continue
             encoded_filepath = filepath.encode('utf-8')
-            tf_example = create_tf_example(encoded_filepath, label0, args.labels, args.signature_vs_others)
+            tf_example = create_tf_example(encoded_filepath, label0, args.labels)
             writer.write(tf_example.SerializeToString())
         writer.close()
         print(f'{count} images')
