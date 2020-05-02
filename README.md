@@ -8,7 +8,7 @@ ces deux fichies décrit toutes les étapes nécessaires pour démarrer avec vot
 
 et aussi Ce référentiel contient un fichier Python Google Colab qui vous permet de monter des dossiers sur  Google Drive et d'exécuter votre propre classificateur de détection d'objets.
 
-- [`Article 3`](https)
+- [`Article 3`](https://github.com/rachikbilal/detection-in-contract-management/blob/master/object-detection.ipynb)
 
 
 ![Exemple image](data2/out-put.jpg)
