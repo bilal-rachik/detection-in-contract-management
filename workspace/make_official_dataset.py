@@ -13,9 +13,9 @@ sys.path.append('../models/research/')
 from object_detection.utils import dataset_util
 
 flags = tf.app.flags
-flags.DEFINE_string('train_output_path', "C:/DEV/detection-in-contract-management/workspace/training_faster_rcnn/annotations/train.tfrecords",
+flags.DEFINE_string('train_output_path', "training_faster_rcnn/annotations/train.tfrecords",
                     'Path to output train set TFRecord')
-flags.DEFINE_string('test_output_path', 'C:/DEV/detection-in-contract-management/workspace/training_faster_rcnn/annotations/test.tfrecords',
+flags.DEFINE_string('test_output_path', 'training_faster_rcnn/annotations/test.tfrecords',
                     'Path to output train set TFRecord')
 FLAGS = flags.FLAGS
 
